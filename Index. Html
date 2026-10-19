@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday Maryam ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #7b2850;
+      background: linear-gradient(
+        135deg,
+        #ffe0ed,
+        #fff0f5,
+        #f8d7ff
+      );
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+      padding: 35px 20px;
+    }
+
+    .heart {
+      font-size: 55px;
+      animation: beat 1s infinite;
+    }
+
+    h1 {
+      font-size: clamp(30px, 8vw, 45px);
+      margin: 15px 0;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 15px 25px;
+      margin-top: 20px;
+      background: #ff5c9a;
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #eaa2c2;
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+
+    .surprise {
+      display: none;
+      margin-top: 30px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 25px;
+      box-shadow: 0 5px 20px #f5c7dc;
+      animation: appear 1s ease;
+    }
+
+    .flowers {
+      font-size: 35px;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 14px;
+    }
+
+    @keyframes beat {
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      animation: floatUp 7s linear forwards;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <div class="heart">💗</div>
+
+    <h1>Happy Birthday, Maryam! 🎂</h1>
+
+    <p>
+      To the sweetest girl in my world 🌷<br>
+      Today is all about YOU! ❤️
+    </p>
+
+    <div class="flowers">
+      🌸 🎀 🌸
+    </div>
+
+    <button id="surpriseButton" onclick="openSurprise()">
+      Open Your Surprise 💌
+    </button>
+
+    <section class="surprise" id="surprise">
+
+      <h2>My Dearest Maryam ❤️</h2>
+
+      <p>
+        You make my world more beautiful just by being in it.
+        Your smile is special, your happiness matters to me,
+        and I hope your birthday brings you countless reasons
+        to smile. 🥹💗
+      </p>
+
+      <p>
+        May your dreams come true and may your heart always
+        be filled with love and happiness. 🌷
+      </p>
+
+      <div class="flowers">
+        🎂 💗 🧸 💗 🎂
+      </div>
+
+      <h2>Forever sending you love 💕</h2>
+
+      <p>
+        You deserve all the happiness in the world.
+        May your special day be as beautiful as your heart. ❤️
+      </p>
+
+    </section>
+
+    <div class="footer">
+      Made with all my love ❤️ Just for you.
+    </div>
+
+  </main>
+
+  <script>
+    function openSurprise() {
+      const surprise = document.getElementById("surprise");
+      const button = document.getElementById("surpriseButton");
+
+      surprise.style.display = "block";
+
+      button.textContent = "Your Surprise Is Open! 💗";
+      button.disabled = true;
+
+      surprise.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+
+      const decorations = [
+        "💗", "💕", "💖", "✨", "🌸", "🎀"
+      ];
+
+      heart.textContent =
+        decorations[Math.floor(Math.random() * decorations.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+
+      heart.style.fontSize =
+        (18 + Math.random() * 18) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    setInterval(createHeart, 700);
+  </script>
+
+</body>
+</html>
