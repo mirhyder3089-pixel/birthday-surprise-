@@ -154,6 +154,11 @@
     </button>
 
     <section class="surprise" id="surprise">
+      
+<audio id="birthdayMusic" loop>
+  <source src="birthday-song.mp3" type="audio/mpeg">
+</audio>
+      
 
       <h2>My Dearest Maryam ❤️</h2>
       
@@ -199,6 +204,10 @@
     function openSurprise() {
       const surprise = document.getElementById("surprise");
       const button = document.getElementById("surpriseButton");
+      const music = document.getElementById("birthdayMusic");
+music.play().catch(error => {
+  console.log("Music playback could not start:", error);
+});
 
       surprise.style.display = "block";
 
